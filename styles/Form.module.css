@@ -93,3 +93,15 @@
         font-size: 14px;
     }
 }
+
+.inputField input:-webkit-autofill,
+.inputField input:-webkit-autofill:hover,
+.inputField input:-webkit-autofill:focus,
+.inputField input:-webkit-autofill:active,
+.baseField input:-webkit-autofill,
+.baseField input:-webkit-autofill:hover,
+.baseField input:-webkit-autofill:focus,
+.baseField input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    -webkit-text-fill-color: #1a1a1a !important;
+}
