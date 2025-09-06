@@ -137,7 +137,7 @@ export default function ConverterPage() {
         let num = integer;
         while (num > 0) {
             const remainder = num % toBase;
-            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (остача: ${remainder} → ${validChars[remainder]})
+            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (${t('step.remainder')}: ${remainder} → ${validChars[remainder]})
 `;
             result = validChars[remainder] + result;
             num = Math.floor(num / toBase);
@@ -158,7 +158,7 @@ export default function ConverterPage() {
         while (frac > 0 && count < precision) {
             frac *= toBase;
             const digit = Math.floor(frac);
-            stepDetails += `${frac.toFixed(6)} → ціла частина: ${digit} (${validChars[digit]})
+            stepDetails += `${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]})
 `;
             result += validChars[digit];
             frac -= digit;

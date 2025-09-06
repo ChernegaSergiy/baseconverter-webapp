@@ -39,5 +39,7 @@
     "step.fracConversionDetails": "{details}Сума: {sum}",
     "step.intToBaseDetails": "{details}Результат: {result} (читаємо залишки знизу вгору)",
     "step.fracToBaseDetails": "{details}Результат: {result}",
-    "step.finalResult": "Результат: {result}"
+    "step.finalResult": "Результат: {result}",
+    "step.remainder": "остача",
+    "step.integerPart": "ціла частина"
 }

@@ -38,5 +38,7 @@
     "step.fracConversionDetails": "{details}Sum: {sum}",
     "step.intToBaseDetails": "{details}Result: {result} (read remainders from bottom to top)",
     "step.fracToBaseDetails": "{details}Result: {result}",
-    "step.finalResult": "Result: {result}"
+    "step.finalResult": "Result: {result}",
+    "step.remainder": "remainder",
+    "step.integerPart": "integer part"
 }
