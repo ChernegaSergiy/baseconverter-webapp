@@ -34,7 +34,7 @@
     font-size: 16px;
     background: #ffffff;
     color: #1a1a1a;
-    font-family: 'Courier New', monospace;
+    font-family: 'Ubuntu Sans Mono', monospace;
 }
 
 .inputField input:focus, .baseField input:focus, .baseField select:focus {
@@ -57,7 +57,7 @@
     max-width: 250px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: 'Courier New', monospace;
+    font-family: 'Ubuntu Sans Mono', monospace;
     transition: all 0.2s ease;
 }
 
