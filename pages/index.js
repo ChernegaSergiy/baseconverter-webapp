@@ -149,22 +149,22 @@ export default function ConverterPage() {
     const convertFractionalToBase = (fractional, toBase, precision) => {
         let steps = [];
         if (fractional === 0) return { result: '', steps };
-        steps.push({ key: 'step.convertFracFromDec', values: { fractional: fractional, toBase: toBase } });
         const validChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let result = '';
         let count = 0;
         let frac = fractional;
         let stepDetails = '';
         while (frac > 0 && count < precision) {
+            const originalFrac = frac;
             frac *= toBase;
             const digit = Math.floor(frac);
-            stepDetails += `${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]})
+            stepDetails += `${originalFrac.toFixed(6)} * ${toBase} = ${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]})
 `;
             result += validChars[digit];
             frac -= digit;
             count++;
         }
-        steps.push({ key: 'step.fracToBaseDetails', values: { details: stepDetails, result: result } });
+        steps.push({ key: 'step.fracToBaseDetails', values: { fractional: fractional, toBase: toBase, details: stepDetails, result: result } });
         return { result, steps };
     };
 
