@@ -72,7 +72,6 @@ export default function ConverterPage() {
 
     const convertIntegerPartToDecimal = (integerStr, fromBase) => {
         let steps = [];
-        steps.push({ key: 'step.convertIntToDec', values: { integer: integerStr, fromBase: fromBase } });
         let decimal = 0;
         const validChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let stepDetails = "";
@@ -84,14 +83,13 @@ export default function ConverterPage() {
             decimal += addValue;
             stepDetails += `${digit} × ${fromBase}^${i} = ${digitValue} × ${power} = ${addValue}\n`;
         }
-        steps.push({ key: 'step.intConversionDetails', values: { details: stepDetails, sum: decimal } });
+        steps.push({ key: 'step.intConversionDetails', values: { integer: integerStr, fromBase: fromBase, details: stepDetails, sum: decimal } });
         return { result: decimal, steps };
     };
 
     const convertFractionalPartToDecimal = (fractionalStr, fromBase) => {
         let steps = [];
         if (!fractionalStr) return { result: 0, steps };
-        steps.push({ key: 'step.convertFracToDec', values: { fractional: fractionalStr, fromBase: fromBase } });
         let decimal = 0;
         const validChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let stepDetails = "";
@@ -103,7 +101,7 @@ export default function ConverterPage() {
             decimal += addValue;
             stepDetails += `${digit} × ${fromBase}^-${i+1} = ${digitValue} × ${power.toFixed(6)} = ${addValue.toFixed(6)}\n`;
         }
-        steps.push({ key: 'step.fracConversionDetails', values: { details: stepDetails, sum: decimal } });
+        steps.push({ key: 'step.fracConversionDetails', values: { fractional: fractionalStr, fromBase: fromBase, details: stepDetails, sum: decimal } });
         return { result: decimal, steps };
     };
 
@@ -126,7 +124,6 @@ export default function ConverterPage() {
 
     const convertIntegerToBase = (integer, toBase) => {
         let steps = [];
-        steps.push({ key: 'step.convertIntFromDec', values: { integer: integer, toBase: toBase } });
         if (integer === 0) {
             steps.push({ key: 'step.zeroIsZero' });
             return { result: '0', steps };
@@ -137,12 +134,11 @@ export default function ConverterPage() {
         let num = integer;
         while (num > 0) {
             const remainder = num % toBase;
-            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (${t('step.remainder')}: ${remainder} → ${validChars[remainder]})
-`;
+            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (${t('step.remainder')}: ${remainder} → ${validChars[remainder]})\n`;
             result = validChars[remainder] + result;
             num = Math.floor(num / toBase);
         }
-        steps.push({ key: 'step.intToBaseDetails', values: { details: stepDetails, result: result } });
+        steps.push({ key: 'step.intToBaseDetails', values: { integer: integer, toBase: toBase, details: stepDetails, result: result } });
         return { result, steps };
     };
 
@@ -158,8 +154,7 @@ export default function ConverterPage() {
             const originalFrac = frac;
             frac *= toBase;
             const digit = Math.floor(frac);
-            stepDetails += `${originalFrac.toFixed(6)} * ${toBase} = ${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]})
-`;
+            stepDetails += `${originalFrac.toFixed(6)} * ${toBase} = ${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]})\n`;
             result += validChars[digit];
             frac -= digit;
             count++;
