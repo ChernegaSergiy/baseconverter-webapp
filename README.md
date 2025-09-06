@@ -2,6 +2,8 @@
 
 Welcome to the Base Converter WebApp repository. This project is a versatile tool for converting numbers between various numeral systems, built with Next.js.
 
+![Base Converter Screenshot](images/screely-1757144551617.png)
+
 ## Features
 
 - **Wide Range of Bases**: Convert numbers between any base from 2 to 36.
