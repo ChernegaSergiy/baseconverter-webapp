@@ -1,6 +1,6 @@
 .examples {
-    background: #f0f0f0;
-    border: 3px solid #1a1a1a;
+    background: var(--background-secondary);
+    border: 3px solid var(--border-primary);
     padding: 25px;
     margin-top: 25px;
 }
@@ -18,8 +18,8 @@
     font-size: 0.9rem;
     font-weight: bold;
     padding: 8px;
-    background: #ffffff;
-    border-left: 4px solid #1a1a1a;
+    background: var(--background-container);
+    border-left: 4px solid var(--border-primary);
     line-height: 1.4;
 }
 

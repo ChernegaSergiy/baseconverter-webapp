@@ -1,6 +1,6 @@
 .resultSection {
-    background: #f8f8f8;
-    border: 3px solid #1a1a1a;
+    background: var(--background-tertiary);
+    border: 3px solid var(--border-primary);
     padding: 25px;
     margin-top: 20px;
     text-align: center;
@@ -11,17 +11,17 @@
     font-weight: bold;
     margin: 15px 0;
     word-break: break-all;
-    background: #1a1a1a;
-    color: #ffffff;
+    background: var(--background-primary-accent);
+    color: var(--text-inverted);
     padding: 12px;
-    border: 2px solid #1a1a1a;
+    border: 2px solid var(--border-primary);
     overflow-wrap: break-word;
 }
 
 .error {
-    background: #ffffff;
-    border: 3px solid #d32f2f;
-    color: #d32f2f;
+    background: var(--background-container);
+    border: 3px solid var(--color-error);
+    color: var(--color-error);
     padding: 15px;
     margin: 15px 0;
     text-align: center;

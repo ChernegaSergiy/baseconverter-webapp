@@ -30,22 +30,22 @@
 .inputField input, .baseField select, .baseField input {
     width: 100%;
     padding: 12px;
-    border: 3px solid #1a1a1a;
+    border: 3px solid var(--border-primary);
     font-size: 16px;
-    background: #ffffff;
-    color: #1a1a1a;
+    background: var(--background-container);
+    color: var(--text-primary);
     font-family: 'Ubuntu Sans Mono', monospace;
 }
 
 .inputField input:focus, .baseField input:focus, .baseField select:focus {
     outline: none;
-    background: #f0f0f0;
-    border-color: #000;
+    background: var(--background-input-focus);
+    border-color: var(--border-primary);
 }
 
 .convertBtn {
-    background: #1a1a1a;
-    color: #ffffff;
+    background: var(--background-primary-accent);
+    color: var(--text-inverted);
     border: none;
     padding: 16px 30px;
     font-size: 16px;
@@ -62,9 +62,9 @@
 }
 
 .convertBtn:hover {
-    background: #333;
+    background: var(--background-primary-accent-hover);
     transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0px #1a1a1a;
+    box-shadow: 4px 4px 0px var(--shadow-primary);
 }
 
 .convertBtn:active {
@@ -102,6 +102,6 @@
 .baseField input:-webkit-autofill:hover,
 .baseField input:-webkit-autofill:focus,
 .baseField input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #e9e9e9 inset !important;
-    -webkit-text-fill-color: #1a1a1a !important;
+    -webkit-box-shadow: 0 0 0 30px var(--background-autofill) inset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
 }
