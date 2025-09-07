@@ -119,7 +119,7 @@ export default function ConverterPage() {
         let steps = [];
         let decimal = 0;
         const validChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let stepDetails = "";
+        let stepDetails = '';
         for (let i = 0; i < integerStr.length; i++) {
             const digit = integerStr[integerStr.length - 1 - i];
             const digitValue = validChars.indexOf(digit.toUpperCase());
@@ -137,7 +137,7 @@ export default function ConverterPage() {
         if (!fractionalStr) return { result: 0, steps };
         let decimal = 0;
         const validChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let stepDetails = "";
+        let stepDetails = '';
         for (let i = 0; i < fractionalStr.length; i++) {
             const digit = fractionalStr[i];
             const digitValue = validChars.indexOf(digit.toUpperCase());
@@ -179,7 +179,7 @@ export default function ConverterPage() {
         let num = integer;
         while (num > 0) {
             const remainder = num % toBase;
-            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (${t('step.remainder')}: ${remainder} → ${validChars[remainder]}\n`;
+            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (${t('step.remainder')}: ${remainder} → ${validChars[remainder]})\n`;
             result = validChars[remainder] + result;
             num = Math.floor(num / toBase);
         }
@@ -199,7 +199,7 @@ export default function ConverterPage() {
             const originalFrac = frac;
             frac *= toBase;
             const digit = Math.floor(frac);
-            stepDetails += `${originalFrac.toFixed(6)} * ${toBase} = ${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]}\n`;
+            stepDetails += `${originalFrac.toFixed(6)} * ${toBase} = ${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]})\n`;
             result += validChars[digit];
             frac -= digit;
             count++;
