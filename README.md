@@ -14,6 +14,7 @@ Welcome to the Base Converter WebApp repository. This project is a versatile too
 - **Handles Fractional Numbers**: Accurately converts numbers with decimal points.
 - **Detailed Steps**: Shows the full, step-by-step process for each conversion, making it a great educational tool.
 - **Responsive Design**: A clean, modern interface that works on both desktop and mobile.
+- **Multilingual Interface**: Support for multiple languages (currently English and Ukrainian), making the tool accessible to a wider audience.
 - **Share Button**: Easily copy a shareable link to your conversion results using the 'Share' button.
 
 ## Technologies Used
