@@ -70,9 +70,10 @@ export default function ConverterPage() {
     }, [isHydrated, router.query.number]);
 
     useEffect(() => {
+        const availableLangs = ['de', 'en', 'fr', 'pl', 'uk'];
         const browserLang = navigator.language.split('-')[0];
-        if (browserLang === 'uk') {
-            setLang('uk');
+        if (availableLangs.includes(browserLang)) {
+            setLang(browserLang);
         }
     }, []);
 
