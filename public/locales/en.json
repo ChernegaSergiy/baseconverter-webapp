@@ -36,5 +36,7 @@
     "step.fracToBaseDetails": "Converting fractional part {fractional} to base {toBase}:\n{details}Result: {result}",
     "step.finalResult": "Result: {result}",
     "step.remainder": "remainder",
-    "step.integerPart": "integer part"
+    "step.integerPart": "integer part",
+    "share.button": "Share",
+    "share.copied": "Copied!"
 }

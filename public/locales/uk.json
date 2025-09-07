@@ -37,5 +37,7 @@
     "step.fracToBaseDetails": "Конвертація дробової частини {fractional} з основою {toBase}:\n{details}Результат: {result}",
     "step.finalResult": "Результат: {result}",
     "step.remainder": "остача",
-    "step.integerPart": "ціла частина"
+    "step.integerPart": "ціла частина",
+    "share.button": "Поділитися",
+    "share.copied": "Скопійовано!"
 }

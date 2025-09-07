@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import styles from '../styles/Converter.module.css';
 
 import { useTranslation } from '../lib/translations';
@@ -9,6 +10,7 @@ import Steps from '../components/Steps';
 import Examples from '../components/Examples';
 
 export default function ConverterPage() {
+    const router = useRouter();
     const [inputNumber, setInputNumber] = useState('');
     const [fromBase, setFromBase] = useState('10');
     const [toBase, setToBase] = useState('16');
@@ -24,6 +26,48 @@ export default function ConverterPage() {
 
     const [lang, setLang] = useState('en'); // Default to English
     const { t } = useTranslation(lang);
+
+    const [isHydrated, setIsHydrated] = useState(false);
+    const initialConversionDone = useRef(false);
+
+    useEffect(() => {
+        if (!router.isReady) return;
+
+        const { number, from, to } = router.query;
+        const standardBases = ['2', '8', '10', '16'];
+
+        if (number) setInputNumber(number);
+
+        if (from) {
+            if (standardBases.includes(from)) {
+                setFromBase(from);
+                setShowCustomFrom(false);
+            } else {
+                setFromBase('custom');
+                setCustomFrom(from);
+                setShowCustomFrom(true);
+            }
+        }
+
+        if (to) {
+            if (standardBases.includes(to)) {
+                setToBase(to);
+                setShowCustomTo(false);
+            } else {
+                setToBase('custom');
+                setCustomTo(to);
+                setShowCustomTo(true);
+            }
+        }
+        setIsHydrated(true);
+    }, [router.isReady]);
+
+    useEffect(() => {
+        if (isHydrated && router.query.number && !initialConversionDone.current) {
+            handleConvert();
+            initialConversionDone.current = true;
+        }
+    }, [isHydrated, router.query.number]);
 
     useEffect(() => {
         const browserLang = navigator.language.split('-')[0];
@@ -134,7 +178,7 @@ export default function ConverterPage() {
         let num = integer;
         while (num > 0) {
             const remainder = num % toBase;
-            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (${t('step.remainder')}: ${remainder} → ${validChars[remainder]})\n`;
+            stepDetails += `${num} / ${toBase} = ${Math.floor(num / toBase)} (${t('step.remainder')}: ${remainder} → ${validChars[remainder]}\n`;
             result = validChars[remainder] + result;
             num = Math.floor(num / toBase);
         }
@@ -154,7 +198,7 @@ export default function ConverterPage() {
             const originalFrac = frac;
             frac *= toBase;
             const digit = Math.floor(frac);
-            stepDetails += `${originalFrac.toFixed(6)} * ${toBase} = ${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]})\n`;
+            stepDetails += `${originalFrac.toFixed(6)} * ${toBase} = ${frac.toFixed(6)} → ${t('step.integerPart')}: ${digit} (${validChars[digit]}\n`;
             result += validChars[digit];
             frac -= digit;
             count++;
@@ -244,7 +288,7 @@ export default function ConverterPage() {
             <div className={styles.container}>
                 <h1 className={styles.title}>{t('title')}</h1>
 
-                <ConverterForm 
+                <ConverterForm
                     t={t}
                     inputNumber={inputNumber} setInputNumber={setInputNumber}
                     fromBase={fromBase} handleFromBaseChange={handleFromBaseChange}
@@ -254,7 +298,16 @@ export default function ConverterPage() {
                     handleConvert={handleConvert} handleKeyPress={handleKeyPress}
                 />
 
-                <ResultDisplay t={t} result={result} error={error} />
+                <ResultDisplay
+                    t={t}
+                    result={result}
+                    error={error}
+                    inputNumber={inputNumber}
+                    fromBase={fromBase}
+                    toBase={toBase}
+                    customFrom={customFrom}
+                    customTo={customTo}
+                />
 
                 <Steps t={t} steps={steps} />
 

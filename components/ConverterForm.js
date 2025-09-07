@@ -91,9 +91,11 @@ export default function ConverterForm({
                 </div>
             )}
 
-            <button className={styles.convertBtn} onClick={handleConvert}>
-                {t('form.convertButton')}
-            </button>
+            <div className='buttonWrapper'>
+                <button className="btn" onClick={handleConvert}>
+                    {t('form.convertButton')}
+                </button>
+            </div>
         </div>
     );
 }

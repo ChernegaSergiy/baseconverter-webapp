@@ -34,6 +34,10 @@
     margin: 15px 0;
 }
 
+.shareWrapper {
+    margin-bottom: 0;
+}
+
 @media (max-width: 768px) {
     .resultNumber {
         font-size: 1.3rem;

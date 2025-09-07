@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 15px;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .inputField {
@@ -41,35 +41,6 @@
     outline: none;
     background: var(--background-input-focus);
     border-color: var(--border-primary);
-}
-
-.convertBtn {
-    background: var(--background-primary-accent);
-    color: var(--text-inverted);
-    border: none;
-    padding: 16px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 25px auto;
-    display: block;
-    width: 100%;
-    max-width: 250px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Ubuntu Sans Mono', monospace;
-    transition: all 0.2s ease;
-}
-
-.convertBtn:hover {
-    background: var(--background-primary-accent-hover);
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0px var(--shadow-primary);
-}
-
-.convertBtn:active {
-    transform: translate(0, 0);
-    box-shadow: none;
 }
 
 @media (max-width: 768px) {

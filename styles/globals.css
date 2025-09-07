@@ -54,3 +54,36 @@ body {
         padding: 10px;
     }
 }
+
+.buttonWrapper {
+    width: 100%;
+    margin: 25px auto;
+    display: block;
+}
+
+.btn {
+    background: var(--background-primary-accent);
+    color: var(--text-inverted);
+    border: none;
+    padding: 16px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Ubuntu Sans Mono', monospace;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--background-primary-accent-hover);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--shadow-primary);
+}
+
+.btn:active {
+    transform: translate(0, 0);
+    box-shadow: none;
+}
+
