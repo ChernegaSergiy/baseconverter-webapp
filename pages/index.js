@@ -252,21 +252,36 @@ export default function ConverterPage() {
 
         try {
             let allSteps = [];
+            let decimalValue;
+            let toDecimalSteps = [];
 
-            const toDecimalConversion = convertFromBaseToDecimal(standardizedInput.toUpperCase(), currentFromBase);
-            const fromDecimalConversion = convertFromDecimalToBase(toDecimalConversion.result, currentToBase);
+            if (currentFromBase === 10) {
+                decimalValue = parseFloat(standardizedInput);
+            } else {
+                const toDecimalConversion = convertFromBaseToDecimal(standardizedInput.toUpperCase(), currentFromBase);
+                decimalValue = toDecimalConversion.result;
+                toDecimalSteps = toDecimalConversion.steps;
+            }
 
-            allSteps.push(...toDecimalConversion.steps);
-            allSteps.push(...fromDecimalConversion.steps);
+            let finalResult;
+            let fromDecimalSteps = [];
 
-            const finalResult = fromDecimalConversion.result;
+            if (currentToBase === 10) {
+                finalResult = String(decimalValue);
+            } else {
+                const fromDecimalConversion = convertFromDecimalToBase(decimalValue, currentToBase);
+                finalResult = fromDecimalConversion.result;
+                fromDecimalSteps = fromDecimalConversion.steps;
+            }
+
+            allSteps.push(...toDecimalSteps, ...fromDecimalSteps);
 
             setResult({
                 original: standardizedInput.toUpperCase(),
                 fromBase: currentFromBase,
                 converted: finalResult,
                 toBase: currentToBase,
-                decimal: (currentFromBase !== 10 && currentToBase !== 10) ? toDecimalConversion.result : null
+                decimal: (currentFromBase !== 10 && currentToBase !== 10) ? decimalValue : null
             });
             setSteps(allSteps);
         } catch (e) {
