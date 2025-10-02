@@ -6,23 +6,23 @@ const { availableLanguages } = require('../lib/translations');
 const BASE_URL = 'https://radix.pp.ua';
 
 function generateSitemap() {
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>`;
-  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">`;
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 
-  xml += `<url>`;
-  xml += `<loc>${BASE_URL}</loc>`;
+  xml += `  <url>\n`;
+  xml += `    <loc>${BASE_URL}</loc>\n`;
 
   for (const lang of availableLanguages) {
-    xml += `<xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}" />`;
+    xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}" />\n`;
   }
 
-  xml += `<xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}" />`;
-  xml += `<lastmod>${new Date().toISOString().split('T')[0]}</lastmod>`;
-  xml += `<changefreq>monthly</changefreq>`;
-  xml += `<priority>1.0</priority>`;
-  xml += `</url>`;
+  xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}" />\n`;
+  xml += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`;
+  xml += `    <changefreq>monthly</changefreq>\n`;
+  xml += `    <priority>1.0</priority>\n`;
+  xml += `  </url>\n`;
 
-  xml += `</urlset>`;
+  xml += `</urlset>\n`;
   return xml;
 }
 
