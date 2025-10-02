@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from '../styles/Converter.module.css';
 
-import { useTranslation } from '../lib/translations';
+import { useTranslation, availableLanguages } from '../lib/translations';
 import ConverterForm from '../components/ConverterForm';
 import ResultDisplay from '../components/ResultDisplay';
 import Steps from '../components/Steps';
@@ -70,9 +70,8 @@ export default function ConverterPage() {
     }, [isHydrated, router.query.number]);
 
     useEffect(() => {
-        const availableLangs = ['de', 'en', 'fr', 'pl', 'uk'];
         const browserLang = navigator.language.split('-')[0];
-        if (availableLangs.includes(browserLang)) {
+        if (availableLanguages.includes(browserLang)) {
             setLang(browserLang);
         }
     }, []);
