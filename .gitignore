@@ -1,4 +1,12 @@
-node_modules/
-out/
-.next/
+# Dependencies
+/node_modules
+
+# Build and Output directories
+/out
+/.next
+
+# Configuration and environment files
 .env
+
+# Generated files
+/public/sitemap.xml

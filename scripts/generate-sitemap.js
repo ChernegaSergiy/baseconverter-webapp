@@ -1,7 +1,9 @@
-import { availableLanguages } from '../lib/translations';
+const fs = require('fs');
+const path = require('path');
+
+const { availableLanguages } = require('../lib/translations');
 
 const BASE_URL = 'https://radix.pp.ua';
-const languages = availableLanguages;
 
 function generateSitemap() {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>`;
@@ -10,12 +12,11 @@ function generateSitemap() {
   xml += `<url>`;
   xml += `<loc>${BASE_URL}</loc>`;
 
-  for (const lang of languages) {
+  for (const lang of availableLanguages) {
     xml += `<xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}" />`;
   }
 
   xml += `<xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}" />`;
-
   xml += `<lastmod>${new Date().toISOString().split('T')[0]}</lastmod>`;
   xml += `<changefreq>monthly</changefreq>`;
   xml += `<priority>1.0</priority>`;
@@ -25,18 +26,11 @@ function generateSitemap() {
   return xml;
 }
 
-const Sitemap = () => {};
-
-export const getServerSideProps = ({ res }) => {
+function main() {
   const sitemap = generateSitemap();
+  const sitemapPath = path.join(__dirname, '../public', 'sitemap.xml');
+  fs.writeFileSync(sitemapPath, sitemap);
+  console.log(`Sitemap generated at ${sitemapPath}`);
+}
 
-  res.setHeader('Content-Type', 'application/xml');
-  res.write(sitemap);
-  res.end();
-
-  return {
-    props: {},
-  };
-};
-
-export default Sitemap;
+main();
