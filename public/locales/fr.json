@@ -38,5 +38,7 @@
     "step.remainder": "reste",
     "step.integerPart": "partie entière",
     "share.button": "Partager",
-    "share.copied": "Copié !"
+    "share.copied": "Copié !",
+    "meta.description": "Convertisseur de systèmes numériques en ligne. Convertissez des nombres entre binaire, octal, décimal, hexadécimal et toute autre base de 2 à 36. Inclut une conversion détaillée étape par étape.",
+    "meta.keywords": "convertisseur de système numérique, convertisseur de base, binaire, octal, décimal, hexadécimal, convertisseur en ligne, radix"
 }

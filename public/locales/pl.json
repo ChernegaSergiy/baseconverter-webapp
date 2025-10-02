@@ -38,5 +38,7 @@
     "step.remainder": "reszta",
     "step.integerPart": "część całkowita",
     "share.button": "Udostępnij",
-    "share.copied": "Skopiowano!"
+    "share.copied": "Skopiowano!",
+    "meta.description": "Internetowy konwerter systemów liczbowych. Konwertuj liczby między systemem binarnym, ósemkowym, dziesiętnym, szesnastkowym i dowolnym innym o podstawie od 2 do 36. Zawiera szczegółową konwersję krok po kroku.",
+    "meta.keywords": "konwerter systemów liczbowych, konwerter podstaw, binarny, ósemkowy, dziesiętny, szesnastkowy, konwerter online, radix"
 }

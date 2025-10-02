@@ -38,5 +38,7 @@
     "step.remainder": "remainder",
     "step.integerPart": "integer part",
     "share.button": "Share",
-    "share.copied": "Copied!"
+    "share.copied": "Copied!",
+    "meta.description": "Online converter for number systems. Convert numbers between binary, octal, decimal, hexadecimal, and any other base from 2 to 36. Includes detailed step-by-step conversion.",
+    "meta.keywords": "number system converter, base converter, binary, octal, decimal, hexadecimal, online converter, radix"
 }

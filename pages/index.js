@@ -299,6 +299,8 @@ export default function ConverterPage() {
         <>
             <Head>
                 <title>{t('title')}</title>
+                <meta name="description" content={t('meta.description')} />
+                <meta name="keywords" content={t('meta.keywords')} />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <div className={styles.container}>

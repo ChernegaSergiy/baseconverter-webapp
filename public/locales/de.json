@@ -38,5 +38,7 @@
     "step.remainder": "Rest",
     "step.integerPart": "Ganzzahlteil",
     "share.button": "Teilen",
-    "share.copied": "Kopiert!"
+    "share.copied": "Kopiert!",
+    "meta.description": "Online-Konverter für Zahlensysteme. Konvertieren Sie Zahlen zwischen binär, oktal, dezimal, hexadezimal und jeder anderen Basis von 2 bis 36. Enthält eine detaillierte Schritt-für-Schritt-Anleitung.",
+    "meta.keywords": "Zahlensystemkonverter, Basiskonverter, binär, oktal, dezimal, hexadezimal, Online-Konverter, Radix"
 }
