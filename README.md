@@ -2,7 +2,7 @@
 
 [![Deploy static content to Pages](https://github.com/ChernegaSergiy/baseconverter-webapp/actions/workflows/deploy.yml/badge.svg)](https://github.com/ChernegaSergiy/baseconverter-webapp/actions/workflows/deploy.yml)
 [![License: CSSM Unlimited License v2.0](https://img.shields.io/badge/License-CSSM%20Unlimited%20License%20v2.0-blue.svg?logo=opensourceinitiative)](LICENSE)
-![Next.js](https://img.shields.io/badge/Next.js-14.2.31-black?logo=next.js)
+![Next.js Version](https://img.shields.io/github/package-json/dependency-version/ChernegaSergiy/baseconverter-webapp/next?filename=package.json&logo=next.js&color=black)
 
 Welcome to the Base Converter WebApp repository. This project is a versatile tool for converting numbers between various numeral systems, built with Next.js.
 
