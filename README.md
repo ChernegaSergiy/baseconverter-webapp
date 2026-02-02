@@ -37,6 +37,8 @@ Make sure you have the following installed:
 
 ### Installation
 
+To set up the project environment on your local machine, perform the following steps:
+
 1. Clone the repo:
    ```bash
    git clone https://github.com/ChernegaSergiy/baseconverter-webapp.git
