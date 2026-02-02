@@ -11,7 +11,7 @@
     "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "author": "Serhii Cherneha",
-  "license": "SEE LICENSE",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "@babel/runtime": "^7.28.3",
     "next": "^14.2.31",
