@@ -43,6 +43,10 @@ To set up the project environment on your local machine, perform the following s
    ```bash
    git clone https://github.com/ChernegaSergiy/baseconverter-webapp.git
    ```
+2. Navigate to the project directory:
+   ```bash
+   cd baseconverter-webapp
+   ```
 2. Install NPM packages:
    ```bash
    npm install
