@@ -1,37 +1,43 @@
 const fs = require('fs');
 const path = require('path');
+const { SitemapStream, streamToPromise } = require('sitemap');
 
 const { availableLanguages } = require('../lib/translations');
 
 const BASE_URL = 'https://radix.pp.ua';
 
-function generateSitemap() {
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
-  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
+async function generateSitemap() {
+  const smStream = new SitemapStream({ hostname: BASE_URL });
 
-  xml += `  <url>\n`;
-  xml += `    <loc>${BASE_URL}</loc>\n`;
+  const links = [
+    ...availableLanguages.map((lang) => ({ lang, url: '/' })),
+    { lang: 'x-default', url: '/' },
+  ];
 
-  xml += `    <lastmod>${new Date().toISOString()}</lastmod>\n`;
-  xml += `    <changefreq>monthly</changefreq>\n`;
-  xml += `    <priority>1.0</priority>\n`;
+  smStream.write({
+    url: '/',
+    changefreq: 'monthly',
+    priority: 1.0,
+    lastmodISO: new Date().toISOString(),
+    links,
+  });
 
-  for (const lang of availableLanguages) {
-    xml += `    <xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}" />\n`;
-  }
+  smStream.end();
 
-  xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}" />\n`;
-
-  xml += `  </url>\n`;
-  xml += `</urlset>\n`;
-  return xml;
+  const sitemapBuffer = await streamToPromise(smStream);
+  return sitemapBuffer.toString('utf8');
 }
 
-function main() {
-  const sitemap = generateSitemap();
-  const sitemapPath = path.join(__dirname, '../out', 'sitemap.xml');
-  fs.writeFileSync(sitemapPath, sitemap);
-  console.log(`Sitemap generated at ${sitemapPath}`);
+async function main() {
+  try {
+    const sitemap = await generateSitemap();
+    const sitemapPath = path.join(__dirname, '../out', 'sitemap.xml');
+    fs.writeFileSync(sitemapPath, sitemap);
+    console.log(`Sitemap generated at ${sitemapPath}`);
+  } catch (error) {
+    console.error('Failed to generate sitemap', error);
+    process.exit(1);
+  }
 }
 
 main();
