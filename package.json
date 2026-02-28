@@ -14,7 +14,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "@babel/runtime": "^7.28.6",
-    "next": "^14.2.31",
+    "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^18.3.1",
     "sitemap": "^9.0.1"
