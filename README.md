@@ -19,10 +19,10 @@ Welcome to the Base Converter WebApp repository. This project is a versatile too
 
 ## Technologies Used
 
-- **Next.js**
-- **React**
-- **JavaScript**
-- **CSS**
+- **Next.js**: 45.8%
+- **React**: 22.9%
+- **JavaScript**: 7.6%
+- **CSS**: 23.7%
 
 ## Getting Started
 
