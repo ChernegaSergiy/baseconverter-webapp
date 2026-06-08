@@ -16,7 +16,7 @@
 
 </div>
 
-Welcome to the Base Converter WebApp repository. This project is a versatile tool for converting numbers between various numeral systems, built with Next.js.
+Welcome to the **Base Converter WebApp** repository. This project is a versatile tool for converting numbers between various numeral systems, built with Next.js.
 
 ## Screenshots
 
