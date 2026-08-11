@@ -10,7 +10,6 @@ updates:
     # automerge: true
     # target-branch: "main"
 
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
