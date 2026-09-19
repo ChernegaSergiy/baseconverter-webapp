@@ -16,7 +16,7 @@
     "@babel/runtime": "^8.0.5",
     "next": "^16.3.5",
     "react": "^19.3.0",
-    "react-dom": "^19.2.8",
+    "react-dom": "^19.3.0",
     "sitemap": "^9.0.1"
   }
 }
